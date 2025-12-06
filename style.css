@@ -1,5 +1,9 @@
-body{
-    background-image:linear-gradient(to right,#c94b4b,#4b134f);
+body {
+    background-image: linear-gradient(to right,#c94b4b,#4b134f);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 #cal{
