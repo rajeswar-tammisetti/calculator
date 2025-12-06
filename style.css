@@ -1,12 +1,14 @@
 body{
     background-image:linear-gradient(to right,#c94b4b,#4b134f);
 }
+
 #cal{
     display: flex;
     flex-direction:column;
     height: 100vh;
     align-items: center;
     justify-content: center;
+    flex-wrap:wrap;
 }
 
 #cal-body{
@@ -16,49 +18,105 @@ body{
     background-image: linear-gradient(to right,#0f0c29,#302b63,#24243e);
     padding: 5vh;
     border-radius: 5vh;
+    width: 100%;
+    max-width: 600px;
+    flex-wrap:wrap;
+
 }
+
 #inputs{
     display: flex;
-    gap: 5vh;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-#buttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-direction: row;
-}
-#buttons button{
-    border:none;
-    color:black;
-    width: 7vh;
-    border-radius: 7px;
-    height: 4vh;
-    background-image: linear-gradient(to right,#ff6f00,gold,gold,#ff6f00);
-    background-size: 250% 100%;
-    box-shadow: 0 0 5px #eee;
-    transition: background-position 0.5s ease;
-}
-#buttons button:hover{
-    background-position: right bottom;
-}
-#result{
-    color: black;
-    opacity:1;
-}
-#result-body{
-    display: flex;
+    gap: 2vh;
+    flex-wrap:wrap;
+    width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
+#buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap:wrap;
+}
+
+#buttons button{
+    flex: 1 1 20%;
+    flex-wrap: wrap;
+    min-width:60px;
+    height: 4rem;
+    border:none;
+    color:black;
+    font-size: 2rem;
+    border-radius: 25px;
+    background-image: linear-gradient(to right,#ff6f00,gold,gold,#ff6f00);
+    background-size: 250% 100%;
+    box-shadow: 0 0 5px #eee;
+    transition: background-position 0.5s ease;
+}
+
+#buttons button:hover{
+    background-position: right bottom;
+}
+
+#result{
+    color: black;
+    font-size: 2.5rem; 
+    opacity:1;
+    background-color: white;
+}
+
+#result-body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
 input{
-    height: 35px;
+    height: 3rem;
+    font-size: 2rem; 
     text-align: center;
     border-radius: 30px;
     border:4px solid #6b2470;
+}
+input:focus {
+  outline: none;
+  box-shadow: -0 0 10px #ff6f00;
+}
+#inputs input{
+    flex: 1 1 45%;
+    max-width: none;
+    height: 3rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 30px;
+    border: 4px solid #6b2470;
+}
+
+@media (max-width: 1260px) {
+  #inputs input{
+    font-size: 4vw;
+    width: 100%;
+    height: 100px;
+  }
+  #result {
+    font-size: 3rem;
+    height: 100px;
+  }
+  #buttons button {
+    font-size: 5vw;
+    height: 12vw;
+    min-width: 20vw;
+  }
+
+  #cal-body {
+    padding: 3vh;
+    gap: 3vh;
+  }
 }
