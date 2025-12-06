@@ -105,28 +105,31 @@ input:focus {
 
 
 
-@media (max-width: 1300px) {
+@media (max-width: 600px) {
 
-  #cal-body {
-    gap: 2vh; 
+  #cal {
+    height: auto;
+    justify-content: flex-start;
+    padding-top: 5vh;
   }
 
-  #inputs input {
-    height: 4rem;
-    font-size: 2.2rem;
+  #cal-body {
+    gap: 1.8vh;
+    padding: 3vh;
+  }
+
+  #inputs input, 
+  #result {
+    height: 3.6rem;
+    font-size: 1.9rem;
   }
 
   #buttons {
-    gap: 20px;
+    gap: 14px;
   }
 
   #buttons button {
-    height: 3.5rem;
-    font-size: 1.8rem;
-  }
-
-  #result {
-    height: 4rem;
-    font-size: 2.2rem;
+    height: 3.3rem;
+    font-size: 1.7rem;
   }
 }
