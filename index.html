@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="cal">
-        <h2 id="title-card">CALCULATOR</h2>
-        <div id="cal-body">
-            <div id="inputs">
-                <input type="number" id="num1">
-                <input type="number" id="num2">
-            </div>
-            <div id="buttons">
-                <button onclick="addition()">+</button>
-                <button onclick="subtraction()">-</button>
-                <button onclick="multiplication()">x</button>
-                <button onclick="division()">/</button>
-                <button onclick="square()">^</button>
-                <button onclick="root()">√</button>
-            </div>
-            <div id="result-body">
-                <input type="number" id="result" disabled>
-            </div>
-        </div>
+
+  <div id="cal">
+    <h2 id="title-card">CALCULATOR</h2>
+    
+    <div id="cal-body">
+
+      <div id="inputs">
+        <input
+          type="text"
+          id="expression"
+          placeholder="Enter expression (e.g. 2+3*sqrt(16))"
+        />
+      </div>
+
+      <div id="buttons">
+        <button onclick="insert('7')">7</button>
+        <button onclick="insert('8')">8</button>
+        <button onclick="insert('9')">9</button>
         
+        <button onclick="insert('(')">(</button>
+        <button onclick="insert(')')">)</button>
+        <button onclick="backspace()" class="backspace">⌫</button>
+        <button onclick="calculateExpression()" class="equals">=</button>
+        <button onclick="insert('4')">4</button>
+        <button onclick="insert('5')">5</button>
+        <button onclick="insert('6')">6</button>
+        <button onclick="insert('+')">+</button>
+        <button onclick="insert('-')">−</button>
+        
+
+        <button onclick="insert('*')">×</button>
+        <button onclick="insert('/')">÷</button>
+        <button onclick="insert('1')">1</button>
+        <button onclick="insert('2')">2</button>
+        <button onclick="insert('3')">3</button>
+        <button onclick="insert('%')">%</button>
+        <button onclick="insert('sqrt(')">√x</button>
+        <button onclick="insert('root(')">n√x</button>
+        <button onclick="insert('^')">xʸ</button>
+        <button onclick="insert('.')">.</button>
+        <button onclick="insert('0')">0</button>
+        <button onclick="insert(',')">,</button>
+        <button onclick="insert('sin(')">sin</button>
+        <button onclick="insert('cos(')">cos</button>
+        <button onclick="insert('tan(')">tan</button>
+        <button onclick="clearCalc()" class="clear">Clear</button>
+        
+
+      </div>
+      <div id="result-body">
+        <input type="text" id="result" disabled />
+      </div>
+
     </div>
+  </div>
+<button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  <script src="script.js"></script>
 </body>
 </html>

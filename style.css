@@ -1,163 +1,244 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Consolas, "Courier New", monospace;
+}
+
 body {
-    background-image: url(cal_body_background.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow-x: hidden;
+  font-family: Consolas, "Courier New", monospace;
+  display: grid;
+  place-items: center;
+  background: url(cal_body_background.png) center / cover no-repeat fixed;
+  transition:
+    background-image 0.4s ease,
+    background-color 0.4s ease;
 }
-#title-card{
-  font-size: 8em;
-  margin: 0 0 1rem;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url(cal_body_background.png);
-  background-size: cover;
-  background-clip: text;
-  color: rgba(0, 0, 0, 0.196);
-  animation: animate 20s linear infinite;
-}
-@keyframes animate{
-  to{
-    background-position-x: -500px;
-  }
-}
-
-#cal{
-    display: flex;
-    flex-direction:column;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    flex-wrap:wrap;
-    min-height: 100vh;
-    padding: 4vh 0;
-}
-
-#cal-body{
-    display: flex;
-    flex-direction: column;
-    gap: 5vh;
-    background-color: rgba(0, 0, 0, 0.100);
-    background: rgba(255,255,255,0.15);
-    backdrop-filter:blur(7px);
-
-    
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.25);
-
-    padding: 5vh;
-    border-radius: 5vh;
-    width: 100%;
-    max-width: 600px;
-    flex-wrap:wrap;
-}
-
-#inputs{
-    display: flex;
-    gap: 2vh;
-    flex-wrap:wrap;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-#buttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap:wrap;
-}
-
-#buttons button{
-    flex: 1 1 20%;
-    flex-wrap: wrap;
-    min-width:60px;
-    height: 4rem;
-    border:none;
-    color:black;
-    font-size: 2rem;
-    border-radius: 25px;
-    background-image: linear-gradient(to right,#79CAB9,#9ED7D0);
-
-    border-top: 1px solid rgba(255, 255, 255, 0.397);
-    border-left: 1px solid rgba(255, 255, 255, 0.363);
-    background-size: 250% 100%;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.216);
+body.dark {
+  background: url(cal_body_dark.png) center / cover no-repeat fixed;
 }
 
 
-#result{
-    color: black;
-    font-size: 2.5rem; 
-    opacity:1;
-    background-color: white;
+#cal {
+  width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-#result-body{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap:wrap;
+#title-card {
+  color: white;
+  letter-spacing: 0.25em;
+  font-size: 2.4rem;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.35);
 }
 
-input{
-    height: 3rem;
-    font-size: 2rem; 
-    text-align: center;
-    border-radius: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.397);
-    border-left: 1px solid rgba(255, 255, 255, 0.363);
-    border-bottom: none;
-    border-right: none;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.358);
+#cal-body {
+  position: relative;
+  width: 100%;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+
+  border-radius: 34px;
+  border: 1px solid rgba(255,255,255,0.45);
+
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.75);
+
+  transition: transform 0.15s ease-out;
+  will-change: transform;
 }
-input:focus {
+
+
+#inputs input,
+#result {
+  font-family: Consolas, "Courier New", monospace;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.4rem;
+  text-align: center;
+
+  border-radius: 14px;
+  border: none;
   outline: none;
-  box-shadow:3px 3px 3px rgba(0, 0, 0, 0.45); 
-}
-#inputs input{
-    flex: 1 1 45%;
-    max-width: none;
-    height: 3rem;
-    font-size: 2rem;
-    text-align: center;
-    border-radius: 30px;
+
+  background: rgba(255,255,255,0.9);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+}
+
+#buttons button {
+  font-family: Consolas, "Courier New", monospace;
+  height: 62px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #003b36;
+  font-weight: 500;
+  font-size: 1.05rem;
+
+    background: rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.32);
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+
+    transition: transform 0.1s ease, box-shadow 0.25s ease;
+}
 
 
-@media (max-width: 600px) {
-  #title-card{
-    font-size: 5em;
-  }
+
+#buttons button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+
+#buttons button:active {
+  transform: translateY(1px);
+  background: rgba(255,255,255,0.35);
+  box-shadow:
+    inset 0 6px 10px rgba(0,0,0,0.28);
+}
+
+
+.equals {
+  background: rgba(200, 255, 240, 0.35);
+}
+
+.clear {
+  background: rgba(255, 210, 210, 0.32);
+}
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  border: 1px solid rgba(255,255,255,0.45);
+
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  color: #003b36;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+body.dark #theme-toggle {
+  background: rgba(30, 45, 42, 0.6);
+  color: #e6fffa;
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+
+
+@media (max-width: 900px) {
   #cal {
-    height: auto;
-    justify-content: flex-start;
-    padding-top: 5vh;
-  }
-
-  #cal-body {
-    gap: 1.8vh;
-    padding: 3vh;
-  }
-
-  #inputs input, 
-  #result {
-    height: 3.6rem;
-    font-size: 1.9rem;
+    width: min(92vw, 520px);
   }
 
   #buttons {
-    gap: 14px;
+    gap: 12px;
   }
 
   #buttons button {
-    height: 3.3rem;
-    font-size: 1.7rem;
+    height: 56px;
+    font-size: 1rem;
+  }
+
+  #title-card {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  body {
+    background-attachment: scroll;
+  }
+
+  #cal {
+    width: 94vw;
+    gap: 0.75rem;
+  }
+
+  #title-card {
+    font-size: 1.6rem;
+    letter-spacing: 0.18em;
+  }
+
+  #cal-body {
+    padding: 1.1rem;
+    border-radius: 26px;
+  }
+
+
+  #buttons {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  #buttons button {
+    height: 52px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+  }
+
+  #inputs input,
+  #result {
+    font-size: 1.2rem;
+    padding: 0.55rem 0.7rem;
+  }
+
+  #theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+
+  #buttons {
+    gap: 8px;
+  }
+
+  #buttons button {
+    height: 48px;
+    font-size: 0.9rem;
+  }
+
+  #title-card {
+    font-size: 1.4rem;
   }
 }
