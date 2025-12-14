@@ -34,6 +34,7 @@ function backspace() {
 }
 
 
+
 document.getElementById("adv-link").addEventListener("click", () => {
   window.open(
     "https://rajeswar-tammisetti.github.io/advance_calculator/",
