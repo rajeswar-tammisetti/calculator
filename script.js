@@ -34,10 +34,12 @@ function backspace() {
 }
 
 
-
-
-
-
+document.getElementById("adv-link").addEventListener("click", () => {
+  window.open(
+    "https://rajeswar-tammisetti.github.io/advance_calculator/",
+    "_blank"
+  );
+});
 
 const toggle = document.getElementById("theme-toggle");
 
@@ -45,3 +47,5 @@ toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 });
+
+
