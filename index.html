@@ -13,7 +13,6 @@
     
     <div id="cal-body">
 
-      <!-- Input -->
       <div id="inputs">
         <input
           type="text"
@@ -22,15 +21,12 @@
         />
       </div>
 
-      <!-- Buttons -->
       <div id="buttons">
 
-        <!-- ROW 1 -->
         <button onclick="insert('7')">7</button>
         <button onclick="insert('8')">8</button>
         <button onclick="insert('9')">9</button>
         
-        <!-- ROW 2 -->
         <button onclick="insert('(')">(</button>
         <button onclick="insert(')')">)</button>
         <button onclick="backspace()" class="backspace">⌫</button>
@@ -41,7 +37,6 @@
         <button onclick="insert('+')">+</button>
         <button onclick="insert('-')">−</button>
         
-        <!-- ROW 3 -->
 
         <button onclick="insert('*')">×</button>
         <button onclick="insert('/')">÷</button>
@@ -59,12 +54,10 @@
         <button onclick="insert('cos(')">cos</button>
         <button onclick="insert('tan(')">tan</button>
         <button onclick="clearCalc()" class="clear">Clear</button>
-        
-        <!-- ROW 4 -->
+
 
       </div>
 
-      <!-- Result -->
       <div id="result-body">
         <input type="text" id="result" disabled />
       </div>
